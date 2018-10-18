@@ -1,0 +1,23 @@
+#      _____   _                        _____                 _
+#    / ____| | |                      / ____|               | |
+#   | (___   | |__     ___    _ __   | (___    _   _   ___  | |_    ___   _ __ ___
+#    \___ \  | '_ \   / _ \  | '_ \   \___ \  | | | | / __| | __|  / _ \ | '_ ` _ \
+#    ____) | | | | | | (_) | | |_) |  ____) | | |_| | \__ \ | |_  |  __/ | | | | | |
+#   |_____/  |_| |_|  \___/  | .__/  |_____/   \__, | |___/  \__|  \___| |_| |_| |_|
+#                             | |                __/ |
+#                             |_|               |___/
+#
+# ＢＹ ＢＬＸＣＫＤＥＶ
+#
+
+#Stelle den Prefix ein
+Prefix: '&eShop&6System &8> &7'
+
+#Stelle ein welcher Command nach dem Kaufen ausgeführt werden soll
+ShopCommand: 'say Stelle einen Command in der config.yml ein!'
+
+#Setzte den Namen vom Villager [Nicht über 16 Zeichen]
+VillagerName: '&eSHOP'
+
+#Setze die Kosten für VIP [Coins]
+VIPKosten: '1000'

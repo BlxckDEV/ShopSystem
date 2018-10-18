@@ -1,0 +1,8 @@
+name: ShopSystem
+version: 0.1
+main: blxck.dev.shopsystem.ShopSystem
+website: https://royalbyte.net/
+author: BlxckDEV
+commands:
+  spawnshop:
+  getvip:
