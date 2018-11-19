@@ -23,6 +23,9 @@ public class ShopSystem extends JavaPlugin {
 
         instance = this;
 
+        new loading();
+
+
         loadConfig();
 
         getServer().getPluginManager().registerEvents(new interact_listener(), this);
@@ -54,8 +57,6 @@ public class ShopSystem extends JavaPlugin {
     @Override
     public void onLoad() {
 
-        Bukkit.getConsoleSender().sendMessage("§cDas ShopSystem wird beendet!");
-
         super.onLoad();
     }
 
@@ -71,5 +72,80 @@ public class ShopSystem extends JavaPlugin {
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
     }
+    private class loading {
+        public loading() {
 
+            new Logger(Logger.LogType.INFO, "§7§M§l-------------------------------------------------");
+            new Logger(Logger.LogType.INFO, "Das §6 " + getDescription().getName() + " §7System wird §agestartet§7...");
+            new Logger(Logger.LogType.INFO, "§7§M§l-------------------------------------------------");
+
+            this.fetchingClasses();
+            this.MethodsfromClasses();
+
+            this.pluginInfoMSG();
+
+            new Logger(Logger.LogType.SUCCES,
+                    "Das §6" + getDescription().getName() + "§7System wurde §aerfolgreich §7gestartet.");
+            new Logger(Logger.LogType.INFO, "§7§M§l-------------------------------------------------");
+
+        }
+
+        private void MethodsfromClasses() {
+            try {
+
+                new Logger(Logger.LogType.SUCCES, "Alle §6Methoden §7wurden ausgeführt.");
+            } catch (Exception e) {
+                new Logger(Logger.LogType.ERROR, "Fehler beim ausführen der §6Methoden§7.");
+                e.printStackTrace();
+            }
+        }
+
+        private void fetchingClasses() {
+            try {
+                new Logger(Logger.LogType.SUCCES, "Alle §6Classen §7wurden geladen.");
+            } catch (Exception e) {
+                new Logger(Logger.LogType.ERROR, "Fehler beim Laden der §6Classen§7.");
+                e.printStackTrace();
+            }
+        }
+
+        private void registerCommands() {
+            try {
+                new Logger(Logger.LogType.SUCCES, "Alle §6Commands §7wurden geladen.");
+            } catch (Exception e) {
+                new Logger(Logger.LogType.ERROR, "Fehler beim Laden der §6Commands§7.");
+                e.printStackTrace();
+            }
+        }
+
+
+        public void pluginInfoMSG() {
+            new Logger(Logger.LogType.INFO, "§7§M§l-------------------------------------------------");
+            new Logger(Logger.LogType.INFO, "Name: §b" + getDescription().getName());
+            new Logger(Logger.LogType.INFO, "Author: §b" + getDescription().getAuthors());
+            new Logger(Logger.LogType.INFO, "Version: §b" + getDescription().getVersion());
+            new Logger(Logger.LogType.INFO, "Website: §b" + getDescription().getWebsite());
+            new Logger(Logger.LogType.INFO, "§7§M§l-------------------------------------------------");
+        }
+    }
+
+    public static class Logger {
+        public Logger(Logger.LogType type, String msg) {
+            Bukkit.getConsoleSender().sendMessage(getInstance().prefix + type.getPrefix() + msg);
+        }
+
+        public enum LogType {
+            INFO("§7[§fINFO§7] "), WARNING("§7[§cWARNING§7] "), ERROR("§7[§4ERROR§7] "), SUCCES("§7[§aSUCCES§7] ");
+
+            String prefix;
+
+            public String getPrefix() {
+                return prefix;
+            }
+
+            LogType(String prefix) {
+                this.prefix = prefix;
+            }
+        }
+    }
 }
